@@ -57,8 +57,6 @@ public class CountArtistSongs {
             put.add(CF_COMMON, ATTR_SONGNUM, Bytes.toBytes(i));
             context.write(null, put);
         }
-        
-        
     }
     
     
@@ -66,7 +64,12 @@ public class CountArtistSongs {
     
         // Create Hbase-specific configuration
         Configuration conf = HBaseConfiguration.create();
-        
+        conf.setInt("timeout", 120000);
+        conf.set("hbase.master", "*10.20.110.61:16006*");
+        conf.set("hbase.zookeeper.quorum","10.20.110.61");
+        conf.set("hbase.zookeeper.property.clientPort", "2186");
+
+
         Job job = Job.getInstance(conf, "Count_artist_songs");
         job.setJarByClass(CountArtistSongs.class);
         job.setMapperClass(ArtistSongMapper.class);
