@@ -36,7 +36,7 @@ public class CountSongsWithTopic {
             
             // Return without writing intermediate result 
             // if title doesnt contain the topic
-            if(!title.contains(topic)) return;
+            if(!title.toLowerCase().contains(topic)) return;
             
             artist_name.set(name);
             context.write(artist_name, ONE);

@@ -1,6 +1,9 @@
 com/studium/millionsong/mapreduce/CountArtistSongs$ArtistSongReducer.class
+com/studium/millionsong/mapreduce/CountSongsWithTopic$SongTopicReducer.class
 com/studium/millionsong/mapreduce/CountArtistSongs.class
 com/studium/millionsong/mapreduce/CompleteToStripped.class
+com/studium/millionsong/mapreduce/CountSongsWithTopic.class
 com/studium/millionsong/mapreduce/CompleteToStripped$CompleteStrippedMapper.class
 com/studium/millionsong/mapreduce/CompleteToStripped$StrippedReducer.class
+com/studium/millionsong/mapreduce/CountSongsWithTopic$SongTopicMapper.class
 com/studium/millionsong/mapreduce/CountArtistSongs$ArtistSongMapper.class

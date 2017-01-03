@@ -1,2 +1,2 @@
-/home/mkemp/Studium/SchemaloseDatenbanken/mapReduce/src/main/java/com/studium/millionsong/mapreduce/CountArtistSongs.java
-/home/mkemp/Studium/SchemaloseDatenbanken/mapReduce/src/main/java/com/studium/millionsong/mapreduce/CompleteToStripped.java
+/home/team6/mapReduce/src/main/java/com/studium/millionsong/mapreduce/CompleteToStripped.java
+/home/team6/mapReduce/src/main/java/com/studium/millionsong/mapreduce/CountArtistSongs.java
