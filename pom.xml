@@ -4,7 +4,7 @@
     <groupId>com.studium.millionSong</groupId>
     <artifactId>MapReduce</artifactId>
     <version>1.0</version>
-    <packaging>jar</packaging>
+    <!-- <packaging>jar</packaging> -->
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-client -->
         <dependency>
@@ -31,26 +31,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
     
-    <build>
-        <finalName>MillionSongAnalysis</finalName>
+    <build> 
             <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>2.4</version>
-                    <configuration>
-                        <archive>
-                            <manifest>
-                                <addClasspath>true</addClasspath>
-                                <classpathPrefix>lib/</classpathPrefix>	
-                                <!-- <mainClass>com.studium.millionsong.mapreduce.CompleteToStripped</mainClass> -->
-                                <mainClass>com.studium.millionsong.mapreduce.CountSongsWithTopic</mainClass>
-                                <!-- <mainClass>com.studium.millionsong.mapreduce.CountArtistSongs</mainClass> -->
-                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                            </manifest>
-                        </archive>
-                    </configuration>
-                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
@@ -62,37 +44,74 @@
                             <goals>
                                 <goal>copy-dependencies</goal>
                             </goals>
-                            <configuration>
-                                <outputDirectory>${project.build.directory}/lib</outputDirectory>
-                                <overWriteReleases>false</overWriteReleases>
-                                <overWriteSnapshots>false</overWriteSnapshots>
-                                <overWriteIfNewer>true</overWriteIfNewer>
-                            </configuration>
                         </execution>
                     </executions>
                 </plugin>
-                <plugin>
+               
+		 <plugin>
                     <artifactId>maven-assembly-plugin</artifactId>
-                    <executions>
+                    	<version>2.6</version>
+                    	<configuration>
+                    		<outputDirectory>${project.build.directory}</outputDirectory>
+                        	<overWriteIfNewer>true</overWriteIfNewer>
+				<appendAssemblyId>false</appendAssemblyId>
+                    	</configuration>
+			<executions>
                         <execution>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>single</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <archive>
-                            <manifest>
-                                <!-- <mainClass>com.studium.millionsong.mapreduce.CompleteToStripped</mainClass> -->
-                                <mainClass>com.studium.millionsong.mapreduce.CountSongsWithTopic</mainClass>
-                                <!-- <mainClass>com.studium.millionsong.mapreduce.CountArtistSongs</mainClass> -->
-                            </manifest>
-                        </archive>
-                        <descriptorRefs>
-                            <descriptorRef>jar-with-dependencies</descriptorRef>
-                        </descriptorRefs>
-                    </configuration>
+				<id>completeToStripped</id>
+                            	<phase>package</phase>
+                            	<goals>
+                                	<goal>single</goal>
+                            	</goals>
+				<configuration>
+					<archive>
+						<manifest> 
+                                			<mainClass>com.studium.millionsong.mapreduce.CompleteToStripped</mainClass>
+						</manifest>
+					</archive>
+					<finalName>CompleteToStripped</finalName>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+                        </execution>                
+                        <execution>
+				<id>countArtistSongs</id>
+                            	<phase>package</phase>
+                            	<goals>
+                                	<goal>single</goal>
+                            	</goals>
+				<configuration>
+					<archive>
+						<manifest> 
+                                			<mainClass>com.studium.millionsong.mapreduce.CountArtistSongs</mainClass>
+						</manifest>
+					</archive>
+					<finalName>CountArtistSongs</finalName>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+                        </execution> 
+                        <execution>
+				<id>countSongsWithTopic</id>
+                            	<phase>package</phase>
+                            	<goals>
+                                	<goal>single</goal>
+                            	</goals>
+				<configuration>
+					<archive>
+						<manifest> 
+                                			<mainClass>com.studium.millionsong.mapreduce.CountSongsWithTopic</mainClass>
+						</manifest>
+					</archive>
+					<finalName>CountSongsWithTopic</finalName>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+                        </execution>                
+			</executions>
                 </plugin>
         </plugins>
     </build>
