@@ -42,8 +42,10 @@
                         <archive>
                             <manifest>
                                 <addClasspath>true</addClasspath>
-                                <classpathPrefix>lib/</classpathPrefix>
-                                <mainClass>com.studium.millionsong.mapreduce.CountArtistSongs</mainClass>
+                                <classpathPrefix>lib/</classpathPrefix>	
+                                <!-- <mainClass>com.studium.millionsong.mapreduce.CompleteToStripped</mainClass> -->
+                                <mainClass>com.studium.millionsong.mapreduce.CountSongsWithTopic</mainClass>
+                                <!-- <mainClass>com.studium.millionsong.mapreduce.CountArtistSongs</mainClass> -->
                                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                             </manifest>
                         </archive>
@@ -82,7 +84,9 @@
                     <configuration>
                         <archive>
                             <manifest>
-                                <mainClass>com.studium.millionsong.mapreduce.CountArtistSongs</mainClass>
+                                <!-- <mainClass>com.studium.millionsong.mapreduce.CompleteToStripped</mainClass> -->
+                                <mainClass>com.studium.millionsong.mapreduce.CountSongsWithTopic</mainClass>
+                                <!-- <mainClass>com.studium.millionsong.mapreduce.CountArtistSongs</mainClass> -->
                             </manifest>
                         </archive>
                         <descriptorRefs>

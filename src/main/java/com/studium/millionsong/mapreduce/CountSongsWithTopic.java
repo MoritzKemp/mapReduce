@@ -56,7 +56,7 @@ public class CountSongsWithTopic {
             }
             
             Put put = new Put(Bytes.toBytes(key.toString()));
-            put.add(CF_COMMON, ATTR_TOPIC, Bytes.toBytes(i));
+            put.add(CF_COMMON, ATTR_TOPIC, Bytes.toBytes(String.valueOf(i)));
             context.write(null, put);
         }
     
