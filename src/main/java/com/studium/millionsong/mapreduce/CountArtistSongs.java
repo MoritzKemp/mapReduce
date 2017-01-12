@@ -54,8 +54,8 @@ public class CountArtistSongs {
             }
             
             Put put = new Put(Bytes.toBytes(key.toString()));
-            put.addColumn(CF_COMMON, ATTR_SONGNUM, Bytes.toBytes(String.valueOf(i)));
-            context.write(null, put);
+            put.addColumn(CF_COMMON, ATTR_SONGNUM, String.valueOf(i).getBytes());
+            context.write(new ImmutableBytesWritable(key.getBytes()), put);
         }
     }
     

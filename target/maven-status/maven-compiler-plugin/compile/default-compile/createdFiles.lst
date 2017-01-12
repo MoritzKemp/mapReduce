@@ -6,4 +6,5 @@ com/studium/millionsong/mapreduce/CountSongsWithTopic.class
 com/studium/millionsong/mapreduce/CompleteToStripped$CompleteStrippedMapper.class
 com/studium/millionsong/mapreduce/CompleteToStripped$StrippedReducer.class
 com/studium/millionsong/mapreduce/CountSongsWithTopic$SongTopicMapper.class
+.netbeans_automatic_build
 com/studium/millionsong/mapreduce/CountArtistSongs$ArtistSongMapper.class
